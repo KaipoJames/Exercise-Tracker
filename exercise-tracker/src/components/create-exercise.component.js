@@ -73,6 +73,7 @@ export default class CreateExercise extends Component {
         }
         console.log("Created Exercise! Data: " + exercise);
 
+        // Post request to put the new Exercise in the database
         axios.post('http://localhost:5000/exercises/add', exercise)
             .then(res => console.log(res.data));
         
