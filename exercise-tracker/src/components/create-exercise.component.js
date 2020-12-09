@@ -6,6 +6,7 @@ export default class CreateExercise extends Component {
 
     constructor(props) {
         super(props);
+        this.userRef = React.createRef();
 
         this.state = {
             username: "",
@@ -61,7 +62,7 @@ export default class CreateExercise extends Component {
             duration: this.state.duration,
             date: this.state.date,
         }
-        console.log(exercise);
+        console.log("Created Exercise! Data: " + exercise);
         
         window.location = '/';
     }
@@ -73,7 +74,7 @@ export default class CreateExercise extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
-                        <select ref="userInput"
+                        <select ref={this.userRef}
                             required
                             className="form-control"
                             value={this.state.username}
